@@ -1,0 +1,184 @@
+/* ==========================================================================
+   Narco Body Repair - Custom Styles & Component Enhancements
+   Color Scheme: Light Sections: #e1e8f0, Dark Sections: #0c0e14, 
+   Accents: Blue #2563eb / #1d4ed8 (Ice Blue #e1e8f0), Gold/Amber #eab308 / #f59e0b
+   ========================================================================== */
+
+/* Root Variables */
+:root {
+  --color-light-bg: #e1e8f0;
+  --color-dark-bg: #0c0e14;
+  --color-card-dark: #161922;
+  --color-card-border: rgba(225, 232, 240, 0.08);
+  --color-accent-blue: #2563eb;
+  --color-accent-blue-hover: #1d4ed8;
+  --color-accent-ice: #e1e8f0;
+  --color-accent-gold: #eab308;
+  --color-text-light: #e1e8f0;
+  --color-text-dark: #0f172a;
+}
+
+/* Base resets & typography */
+html {
+  scroll-behavior: smooth;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  background-color: var(--color-dark-bg);
+  color: var(--color-text-light);
+}
+
+/* Custom angled corner for Service Cards matching the screenshot */
+.service-img-notch {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 32px), calc(100% - 32px) 100%, 0 100%);
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.service-card:hover .service-img-notch {
+  transform: scale(1.04);
+}
+
+/* Wireframe contour decorative SVG background */
+.wireframe-pattern-hero {
+  background-image: radial-gradient(circle at 80% 20%, rgba(234, 179, 8, 0.12) 0%, transparent 60%),
+                    radial-gradient(circle at 100% 80%, rgba(37, 99, 235, 0.08) 0%, transparent 50%);
+}
+
+.wireframe-pattern-cta {
+  background-image: radial-gradient(circle at 15% 50%, rgba(234, 179, 8, 0.12) 0%, transparent 55%),
+                    radial-gradient(circle at 85% 50%, rgba(37, 99, 235, 0.1) 0%, transparent 55%);
+}
+
+/* Before and After slider component */
+.comparison-slider-container {
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+  border-radius: 1.25rem;
+}
+
+.comparison-before-img,
+.comparison-after-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.comparison-after-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  overflow: hidden;
+  width: 50%;
+}
+
+.comparison-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 4px;
+  background: #ffffff;
+  cursor: ew-resize;
+  transform: translateX(-50%);
+  z-index: 20;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+}
+
+.comparison-handle-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #2563eb;
+  border: 3px solid #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Marquee Animation for Brands */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0c0e14;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #232734;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #333a4c;
+}
+
+/* Glassmorphism utilities */
+.glass-panel-dark {
+  background: rgba(22, 25, 34, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(225, 232, 240, 0.08);
+}
+
+.glass-pill-dark {
+  background: rgba(26, 31, 42, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(225, 232, 240, 0.12);
+}
+
+/* Interactive Card Transitions */
+.card-hover-effect {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-hover-effect:hover {
+  transform: translateY(-6px);
+  border-color: rgba(234, 179, 8, 0.3);
+  box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.5), 0 0 20px rgba(234, 179, 8, 0.1);
+}
+
+/* Map container Leaflet style override */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  background-color: #1a1e29 !important;
+}
+
+/* Modal animation */
+.modal-enter {
+  opacity: 0;
+  transform: scale(0.95);
+}
+.modal-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 250ms ease-out, transform 250ms ease-out;
+}

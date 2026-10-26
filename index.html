@@ -1,0 +1,1507 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Narco Body Repair — Premium Auto Body Repair, Cat Oven & Collision Center</title>
+  <meta name="description" content="Bengkel spesialis body repair, ketok magic, cat oven berstandar OEM, dan perbaikan tabrakan bergaransi di Semarang. Hubungi WA 0858-0310-0168.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232563eb'><path d='M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2'/><circle cx='7' cy='17' r='2'/><path d='M9 17h6'/><circle cx='17' cy='17' r='2'/></svg>">
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Leaflet Map CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              light: '#e1e8f0', // Primary light background replacing pure white
+              dark: '#0c0e14',  // Primary deep obsidian dark background
+              card: '#161922',  // Card background in dark sections
+              border: 'rgba(225, 232, 240, 0.08)',
+              blue: '#2563eb',
+              'blue-hover': '#1d4ed8',
+              'blue-ice': '#e1e8f0',
+              gold: '#eab308',
+              'gold-hover': '#ca8a04',
+              muted: '#94a3b8'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Leaflet Map JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+</head>
+
+<body class="bg-brand-dark text-[#e1e8f0] font-sans antialiased selection:bg-brand-blue selection:text-white">
+
+  <!-- =========================================================================
+       TOP ANNOUNCEMENT / UTILITY BAR
+       Background: #e1e8f0 (replacing pure white)
+       ========================================================================= -->
+  <div class="bg-[#e1e8f0] border-b border-slate-300/80 text-xs text-slate-700 py-2 px-4 sm:px-8">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+      <div class="flex items-center gap-6">
+        <span class="flex items-center gap-1.5 font-medium">
+          <i data-lucide="map-pin" class="w-3.5 h-3.5 text-brand-blue"></i>
+          Jl. Panggung Mas Raya No.102, Panggung Lor, Semarang Utara
+        </span>
+        <span class="hidden md:flex items-center gap-1.5 font-medium">
+          <i data-lucide="clock" class="w-3.5 h-3.5 text-brand-blue"></i>
+          Senin - Sabtu: 09:00 - 16:00 WIB (Minggu Tutup)
+        </span>
+      </div>
+      <div class="flex items-center gap-5">
+        <a href="https://wa.me/6285803100168" target="_blank" class="flex items-center gap-1.5 font-semibold text-slate-900 hover:text-brand-blue transition-colors">
+          <i data-lucide="phone-call" class="w-3.5 h-3.5 text-brand-blue"></i>
+          WA: 0858-0310-0168
+        </a>
+        <span class="text-slate-400">|</span>
+        <span class="font-medium text-slate-600">Garansi Cat & Bodi 100% Puas</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MAIN NAVIGATION BAR
+       Background: #e1e8f0 (replacing pure white)
+       ========================================================================= -->
+  <nav id="mainNavbar" class="sticky top-0 z-40 bg-[#e1e8f0] border-b border-slate-300/70 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo -->
+        <a href="#hero" class="flex items-center gap-3 group">
+          <div class="w-11 h-11 rounded-xl bg-brand-blue flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform duration-300">
+            <i data-lucide="shield-check" class="w-6 h-6 stroke-[2.5]"></i>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-xl sm:text-2xl font-black tracking-tight text-slate-900 leading-none">
+              NARCO <span class="text-brand-blue">BODY REPAIR</span>
+            </span>
+            <span class="text-[10px] uppercase font-bold tracking-widest text-slate-500 mt-1">
+              Collision & Cat Oven Specialist
+            </span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <div class="hidden lg:flex items-center space-x-8">
+          <a href="#hero" class="text-sm font-bold text-slate-900 hover:text-brand-blue transition-colors">Home</a>
+          <a href="#services" class="text-sm font-semibold text-slate-700 hover:text-brand-blue transition-colors">Services</a>
+          <a href="#about" class="text-sm font-semibold text-slate-700 hover:text-brand-blue transition-colors">About Us</a>
+          <a href="#process" class="text-sm font-semibold text-slate-700 hover:text-brand-blue transition-colors">Process</a>
+          <a href="#gallery" class="text-sm font-semibold text-slate-700 hover:text-brand-blue transition-colors">Gallery</a>
+          <a href="#reviews" class="text-sm font-semibold text-slate-700 hover:text-brand-blue transition-colors">Reviews</a>
+          <a href="#contact" class="text-sm font-semibold text-slate-700 hover:text-brand-blue transition-colors">Contact</a>
+        </div>
+
+        <!-- Desktop Action Button -->
+        <div class="hidden lg:flex items-center gap-4">
+          <button class="open-booking-btn bg-brand-blue hover:bg-brand-blue-hover text-white font-bold text-sm px-6 py-2.5 rounded-md shadow-sm transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0">
+            BOOK NOW
+          </button>
+        </div>
+
+        <!-- Mobile Hamburger Button -->
+        <div class="lg:hidden flex items-center">
+          <button id="mobileMenuBtn" aria-label="Buka Menu" class="p-2 rounded-lg text-slate-800 hover:bg-slate-300/60 focus:outline-none">
+            <i data-lucide="menu" class="w-7 h-7"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer Overlay -->
+  <div id="mobileMenuOverlay" class="fixed inset-0 bg-black/60 z-50 hidden opacity-0 transition-opacity duration-300 backdrop-blur-sm"></div>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobileMenuDrawer" class="fixed top-0 right-0 w-[280px] sm:w-[320px] h-full bg-[#e1e8f0] z-50 translate-x-full transition-transform duration-300 ease-in-out p-6 flex flex-col justify-between shadow-2xl">
+    <div>
+      <div class="flex items-center justify-between pb-6 border-b border-slate-300">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-lg bg-brand-blue flex items-center justify-center text-white">
+            <i data-lucide="shield-check" class="w-5 h-5"></i>
+          </div>
+          <span class="font-extrabold text-slate-900 text-lg">NARCO REPAIR</span>
+        </div>
+        <button id="closeMobileMenuBtn" class="p-2 text-slate-600 hover:text-slate-900">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+      </div>
+
+      <nav class="flex flex-col gap-4 mt-6">
+        <a href="#hero" class="mobile-nav-link text-base font-bold text-slate-900 py-1">Home</a>
+        <a href="#services" class="mobile-nav-link text-base font-semibold text-slate-700 py-1">Services</a>
+        <a href="#about" class="mobile-nav-link text-base font-semibold text-slate-700 py-1">About Us</a>
+        <a href="#process" class="mobile-nav-link text-base font-semibold text-slate-700 py-1">Process</a>
+        <a href="#gallery" class="mobile-nav-link text-base font-semibold text-slate-700 py-1">Gallery</a>
+        <a href="#reviews" class="mobile-nav-link text-base font-semibold text-slate-700 py-1">Reviews</a>
+        <a href="#contact" class="mobile-nav-link text-base font-semibold text-slate-700 py-1">Contact</a>
+      </nav>
+    </div>
+
+    <div class="pt-6 border-t border-slate-300 flex flex-col gap-3">
+      <button class="open-booking-btn w-full bg-brand-blue hover:bg-brand-blue-hover text-white font-bold py-3 rounded-lg shadow">
+        BOOK YOUR REPAIR
+      </button>
+      <a href="tel:085803100168" class="w-full text-center py-2.5 border border-slate-400 rounded-lg text-slate-800 font-semibold text-sm">
+        Call 0858-0310-0168
+      </a>
+    </div>
+  </div>
+
+
+  <!-- =========================================================================
+       HERO SECTION
+       Background: #e1e8f0 (Strictly replacing white per user requirement)
+       Matches reference screenshot: Headline, Subtitle, Buttons, Checkmarks, Hero Card
+       ========================================================================= -->
+  <section id="hero" class="relative bg-[#e1e8f0] text-slate-900 py-16 sm:py-24 lg:py-28 overflow-hidden wireframe-pattern-hero">
+    
+    <!-- Subtle Golden Background Geometric Contour (Matches Screenshot) -->
+    <div class="absolute right-0 top-1/2 -translate-y-1/2 w-[600px] h-[600px] pointer-events-none opacity-25">
+      <svg viewBox="0 0 500 500" class="w-full h-full stroke-amber-500 fill-none" stroke-width="1.2">
+        <circle cx="250" cy="250" r="230" stroke-dasharray="8 6" />
+        <ellipse cx="250" cy="250" rx="210" ry="140" transform="rotate(-30 250 250)" />
+        <ellipse cx="250" cy="250" rx="210" ry="140" transform="rotate(30 250 250)" />
+        <circle cx="250" cy="250" r="160" />
+        <ellipse cx="250" cy="250" rx="140" ry="80" transform="rotate(60 250 250)" />
+        <circle cx="250" cy="250" r="90" stroke-dasharray="4 4" />
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        
+        <!-- Left Column: Content -->
+        <div class="lg:col-span-7 space-y-7">
+          
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.12]">
+            Premium Auto Repair Service You Can Trust
+          </h1>
+
+          <p class="text-lg sm:text-xl text-slate-700 font-normal max-w-2xl leading-relaxed">
+            Fast, reliable, and expert car body repair delivered by certified mechanics with 15+ years of experience.
+          </p>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-wrap items-center gap-4 pt-2">
+            <button class="open-booking-btn bg-brand-blue hover:bg-brand-blue-hover text-white font-bold text-base px-8 py-3.5 rounded-md shadow-md hover:shadow-lg transition-all duration-200">
+              BOOK YOUR REPAIR
+            </button>
+            <a href="tel:085803100168" class="bg-transparent border border-slate-500 hover:border-slate-800 text-slate-800 hover:bg-slate-300/50 font-bold text-base px-8 py-3.5 rounded-md transition-all duration-200 inline-flex items-center gap-2">
+              CALL NOW
+            </a>
+          </div>
+
+          <!-- Feature Checkmark Grid (Matches Screenshot) -->
+          <div class="pt-6 grid grid-cols-2 sm:grid-cols-3 gap-y-3 gap-x-4">
+            
+            <div class="flex items-center gap-2 text-slate-800 font-semibold text-sm">
+              <span class="w-5 h-5 rounded-full bg-brand-blue text-white flex items-center justify-center text-xs">✓</span>
+              <span>Engine Problems</span>
+            </div>
+
+            <div class="flex items-center gap-2 text-slate-800 font-semibold text-sm">
+              <span class="w-5 h-5 rounded-full bg-brand-blue text-white flex items-center justify-center text-xs">✓</span>
+              <span>Brake Issues</span>
+            </div>
+
+            <div class="flex items-center gap-2 text-slate-800 font-semibold text-sm">
+              <span class="w-5 h-5 rounded-full bg-brand-blue text-white flex items-center justify-center text-xs">✓</span>
+              <span>Electrical Faults</span>
+            </div>
+
+            <div class="flex items-center gap-2 text-slate-800 font-semibold text-sm">
+              <span class="w-5 h-5 rounded-full bg-brand-blue text-white flex items-center justify-center text-xs">✓</span>
+              <span>Fluid Leaks</span>
+            </div>
+
+            <div class="flex items-center gap-2 text-slate-800 font-semibold text-sm">
+              <span class="w-5 h-5 rounded-full bg-brand-blue text-white flex items-center justify-center text-xs">✓</span>
+              <span>AC & Heating Issues</span>
+            </div>
+
+            <div class="flex items-center gap-2 text-slate-800 font-semibold text-sm">
+              <span class="w-5 h-5 rounded-full bg-brand-blue text-white flex items-center justify-center text-xs">✓</span>
+              <span>Body Dent & Paint</span>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Right Column: Hero Image Container (Matches Screenshot Layout & Shape) -->
+        <div class="lg:col-span-5 relative flex justify-center lg:justify-end">
+          
+          <!-- Outer Rounded Container -->
+          <div class="relative w-full max-w-[480px] aspect-[4/4] sm:aspect-[4/4.5] rounded-[32px] overflow-hidden shadow-2xl border-4 border-slate-300/80 bg-slate-900 group">
+            
+            <img 
+              src="assets/images/hero_engine_oil.jpg" 
+              alt="Auto Repair Precision Service" 
+              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+              onerror="this.src='assets/images/hero_car_repair.jpg'"
+            />
+
+            <!-- Subtle Gradient Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+
+            <!-- Floating Pill Badge on Hero Image -->
+            <div class="absolute bottom-5 left-5 right-5 glass-panel-dark px-4 py-3 rounded-2xl flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-full bg-brand-blue flex items-center justify-center text-white">
+                  <i data-lucide="check-circle" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <div class="text-xs text-slate-300">Garansi Pengerjaan</div>
+                  <div class="text-sm font-bold text-[#e1e8f0]">100% Presisi Pabrikan</div>
+                </div>
+              </div>
+              <span class="text-xs bg-amber-400/20 text-amber-300 px-2.5 py-1 rounded-full font-bold">15+ Th Pengalaman</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       SECTION 2: FAST, RELIABLE & PROFESSIONAL AUTO CARE (3 CORE PILLARS)
+       Background: Dark #0c0e14
+       Matches Screenshot: Centered Heading, Gold Accent, 3 Cards with Hexagon Icons
+       ========================================================================= -->
+  <section class="py-24 bg-brand-dark relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#e1e8f0] tracking-tight">
+          Fast, <span class="text-brand-gold">Reliable & Professional</span> Auto Care
+        </h2>
+        <p class="text-base sm:text-lg text-slate-400">
+          Top-tier auto services designed to safely get you back on the road quickly.
+        </p>
+      </div>
+
+      <!-- 3 Pillar Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Card 1 -->
+        <div class="bg-brand-card border border-brand-border rounded-xl p-8 card-hover-effect flex flex-col justify-between">
+          <div class="space-y-6">
+            <!-- Icon Badge (Octagon / Hexagon motif with amber icon) -->
+            <div class="w-14 h-14 rounded-2xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-brand-gold">
+              <i data-lucide="wrench" class="w-7 h-7"></i>
+            </div>
+            <h3 class="text-xl font-bold text-[#e1e8f0]">Certified Expert Techs</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              Our certified technicians use advanced hydraulic alignment and computerized paint systems to deliver immaculate factory-level results.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/5 flex items-center text-xs font-semibold text-brand-gold gap-1">
+            <span>Standar Internasional</span>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-brand-card border border-brand-border rounded-xl p-8 card-hover-effect flex flex-col justify-between">
+          <div class="space-y-6">
+            <!-- Icon Badge -->
+            <div class="w-14 h-14 rounded-2xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-brand-gold">
+              <i data-lucide="thumbs-up" class="w-7 h-7"></i>
+            </div>
+            <h3 class="text-xl font-bold text-[#e1e8f0]">Quick & Easy Repairs</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              We streamline every repair stage to minimize your vehicle downtime without ever compromising on safety, paint curing, or finishing quality.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/5 flex items-center text-xs font-semibold text-brand-gold gap-1">
+            <span>Express Fast-Track Service</span>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-brand-card border border-brand-border rounded-xl p-8 card-hover-effect flex flex-col justify-between">
+          <div class="space-y-6">
+            <!-- Icon Badge -->
+            <div class="w-14 h-14 rounded-2xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-brand-gold">
+              <i data-lucide="file-text" class="w-7 h-7"></i>
+            </div>
+            <h3 class="text-xl font-bold text-[#e1e8f0]">Transparent Repair Pricing</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              Clear itemized estimates upfront with zero hidden charges. You receive continuous progress photos and total peace of mind every step of the way.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/5 flex items-center text-xs font-semibold text-brand-gold gap-1">
+            <span>Estimasi Rinci & Jujur</span>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       SECTION 3: PROFESSIONAL AUTO REPAIR SOLUTIONS (SERVICES)
+       Background: Dark #0c0e14
+       Matches Screenshot: Pill Badge, Top Row with View All Button, 3 Cards with Cut Corner Images
+       ========================================================================= -->
+  <section id="services" class="py-24 bg-[#0a0c12] border-t border-b border-brand-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Top Pill Badge -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#181b25] border border-slate-700/60 text-xs font-bold text-slate-300 mb-6">
+        <i data-lucide="tool" class="w-3.5 h-3.5 text-brand-blue"></i>
+        <span>Our Services</span>
+      </div>
+
+      <!-- Header Row: Title & View All Button -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+        <div>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#e1e8f0] tracking-tight">
+            Professional <span class="text-brand-gold">Auto Repair</span> Solutions
+          </h2>
+          <p class="text-slate-400 mt-2 text-base max-w-xl">
+            Narco Body Repair keeps your vehicle looking flawless and driving safely with fast, reliable, expert craftsmanship.
+          </p>
+        </div>
+
+        <div>
+          <button class="open-booking-btn inline-flex items-center gap-2 bg-brand-blue hover:bg-brand-blue-hover text-white font-bold text-sm px-6 py-3 rounded-md transition-all shadow">
+            <span>VIEW ALL SERVICES</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- 3 Service Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Service Card 1 -->
+        <div class="service-card bg-brand-card border border-brand-border rounded-2xl overflow-hidden p-5 flex flex-col justify-between group">
+          <div>
+            <!-- Custom Corner Notched Image (Matches Screenshot) -->
+            <div class="relative w-full aspect-[16/10] overflow-hidden rounded-xl bg-slate-900 mb-6">
+              <img 
+                src="assets/images/service_body_dent.jpg" 
+                alt="Body Dent & Collision Repair" 
+                class="service-img-notch w-full h-full object-cover"
+              />
+              <div class="absolute top-3 left-3 bg-black/70 backdrop-blur-md px-3 py-1 rounded-md text-[11px] font-bold text-amber-300 border border-amber-400/30">
+                PDR & Chassis Jig
+              </div>
+            </div>
+
+            <h3 class="text-xl font-bold text-[#e1e8f0] mb-3 group-hover:text-amber-400 transition-colors">
+              Body Dent & Collision Repair
+            </h3>
+            <p class="text-sm text-slate-400 leading-relaxed mb-6">
+              Specialized panel beating, paintless dent removal (PDR), and hydraulic chassis straightening to restore vehicle integrity.
+            </p>
+          </div>
+
+          <button 
+            data-service-key="body-dent" 
+            class="explore-service-btn w-full py-2.5 px-4 rounded-lg border border-slate-700/80 hover:border-amber-400/80 text-xs font-bold uppercase tracking-wider text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all flex items-center justify-center gap-2"
+          >
+            <span>EXPLORE SERVICE</span>
+            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+        <!-- Service Card 2 -->
+        <div class="service-card bg-brand-card border border-brand-border rounded-2xl overflow-hidden p-5 flex flex-col justify-between group">
+          <div>
+            <!-- Custom Corner Notched Image -->
+            <div class="relative w-full aspect-[16/10] overflow-hidden rounded-xl bg-slate-900 mb-6">
+              <img 
+                src="assets/images/service_cat_oven.jpg" 
+                alt="Precision Cat Oven & Paint Match" 
+                class="service-img-notch w-full h-full object-cover"
+              />
+              <div class="absolute top-3 left-3 bg-black/70 backdrop-blur-md px-3 py-1 rounded-md text-[11px] font-bold text-amber-300 border border-amber-400/30">
+                Computerized Mixing
+              </div>
+            </div>
+
+            <h3 class="text-xl font-bold text-[#e1e8f0] mb-3 group-hover:text-amber-400 transition-colors">
+              Precision Cat Oven & Paint Match
+            </h3>
+            <p class="text-sm text-slate-400 leading-relaxed mb-6">
+              Dust-free high-temperature spray oven booth with computerized color-matching system for a seamless factory showroom finish.
+            </p>
+          </div>
+
+          <button 
+            data-service-key="cat-oven" 
+            class="explore-service-btn w-full py-2.5 px-4 rounded-lg border border-slate-700/80 hover:border-amber-400/80 text-xs font-bold uppercase tracking-wider text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all flex items-center justify-center gap-2"
+          >
+            <span>EXPLORE SERVICE</span>
+            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+        <!-- Service Card 3 -->
+        <div class="service-card bg-brand-card border border-brand-border rounded-2xl overflow-hidden p-5 flex flex-col justify-between group">
+          <div>
+            <!-- Custom Corner Notched Image -->
+            <div class="relative w-full aspect-[16/10] overflow-hidden rounded-xl bg-slate-900 mb-6">
+              <img 
+                src="assets/images/service_detailing.jpg" 
+                alt="Premium Detailing & Coating" 
+                class="service-img-notch w-full h-full object-cover"
+              />
+              <div class="absolute top-3 left-3 bg-black/70 backdrop-blur-md px-3 py-1 rounded-md text-[11px] font-bold text-amber-300 border border-amber-400/30">
+                Nano Ceramic 9H
+              </div>
+            </div>
+
+            <h3 class="text-xl font-bold text-[#e1e8f0] mb-3 group-hover:text-amber-400 transition-colors">
+              Premium Detailing & Nano Coating
+            </h3>
+            <p class="text-sm text-slate-400 leading-relaxed mb-6">
+              Multi-stage paint correction, swirl elimination, and durable hydrophobic ceramic shield to protect against weather and scratches.
+            </p>
+          </div>
+
+          <button 
+            data-service-key="detailing" 
+            class="explore-service-btn w-full py-2.5 px-4 rounded-lg border border-slate-700/80 hover:border-amber-400/80 text-xs font-bold uppercase tracking-wider text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all flex items-center justify-center gap-2"
+          >
+            <span>EXPLORE SERVICE</span>
+            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       SECTION 4: YOUR TRUSTED AUTO REPAIR EXPERTS (ABOUT US)
+       Background: Dark #0c0e14
+       Matches Screenshot: Pill Badge, Split 2-Column, Mechanic on Lift Photo, Gold Feature Highlight
+       ========================================================================= -->
+  <section id="about" class="py-24 bg-brand-dark">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        
+        <!-- Left: Large Workshop Lift Photo -->
+        <div class="lg:col-span-6">
+          <div class="relative rounded-3xl overflow-hidden border border-brand-border bg-slate-900 shadow-2xl group">
+            <img 
+              src="assets/images/about_lift_mechanic.jpg" 
+              alt="Narco Body Repair Master Technicians" 
+              class="w-full aspect-[4/3.8] object-cover group-hover:scale-105 transition-transform duration-700"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            
+            <!-- Bottom Experience Badge -->
+            <div class="absolute bottom-6 left-6 right-6 glass-panel-dark p-4 rounded-2xl flex items-center gap-4">
+              <div class="w-12 h-12 rounded-xl bg-amber-400/20 text-brand-gold flex items-center justify-center font-black text-xl">
+                15+
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-[#e1e8f0]">Tahun Melayani Pelanggan</h4>
+                <p class="text-xs text-slate-400">Ribuan mobil kembali mulus seperti keluar dari showroom</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Description & Highlights -->
+        <div class="lg:col-span-6 space-y-6">
+          
+          <!-- Top Pill Badge -->
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#181b25] border border-slate-700/60 text-xs font-bold text-slate-300">
+            <i data-lucide="shield" class="w-3.5 h-3.5 text-brand-blue"></i>
+            <span>About Us</span>
+          </div>
+
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#e1e8f0] tracking-tight leading-tight">
+            Your Trusted <span class="text-brand-gold">Auto Repair</span> Experts
+          </h2>
+
+          <p class="text-base text-slate-300 leading-relaxed font-medium">
+            Delivering honest, high-quality body repair and collision care from certified technicians and years of proven experience.
+          </p>
+
+          <p class="text-sm text-slate-400 leading-relaxed">
+            Expert auto repair with modern hydraulic jig benches and computerized color formulation, backed by certified master painters with transparent pricing and a dedicated focus on long-term vehicle safety and aesthetics.
+          </p>
+
+          <!-- Trusted Expertise Highlight Row (Matches Screenshot Icon) -->
+          <div class="flex items-start gap-4 p-4 rounded-2xl bg-[#161922] border border-brand-border">
+            <div class="w-12 h-12 rounded-xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-brand-gold shrink-0">
+              <i data-lucide="award" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <h4 class="text-base font-bold text-[#e1e8f0]">Trusted Expertise</h4>
+              <p class="text-sm text-slate-400 mt-1">Reliable guidance and craftsmanship ensuring showroom-grade quality results every time.</p>
+            </div>
+          </div>
+
+          <!-- Blue Action Button -->
+          <div class="pt-2">
+            <button class="open-booking-btn bg-brand-blue hover:bg-brand-blue-hover text-white font-bold text-sm px-8 py-3.5 rounded-md shadow transition-all duration-200">
+              MORE ABOUT US
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       SECTION 5: STATS / METRICS BAR
+       Background: Dark #0c0e14
+       Matches Screenshot: 4 Columns with Numbers and Sub-captions
+       ========================================================================= -->
+  <section class="py-16 bg-[#090b0f] border-t border-b border-brand-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 divide-y md:divide-y-0 md:divide-x divide-white/10">
+        
+        <!-- Stat 1 -->
+        <div class="text-center px-4 py-2">
+          <div class="text-4xl sm:text-5xl font-black text-[#e1e8f0] tracking-tight">15+</div>
+          <div class="text-sm font-bold text-slate-300 mt-2">Years Experience</div>
+          <p class="text-xs text-slate-500 mt-1">Dedicated automotive excellence</p>
+        </div>
+
+        <!-- Stat 2 -->
+        <div class="text-center px-4 py-2 pt-6 md:pt-2">
+          <div class="text-4xl sm:text-5xl font-black text-[#e1e8f0] tracking-tight">12k+</div>
+          <div class="text-sm font-bold text-slate-300 mt-2">Vehicles Serviced</div>
+          <p class="text-xs text-slate-500 mt-1">From minor dents to full rebuilds</p>
+        </div>
+
+        <!-- Stat 3 -->
+        <div class="text-center px-4 py-2 pt-6 md:pt-2">
+          <div class="text-4xl sm:text-5xl font-black text-[#e1e8f0] tracking-tight">25+</div>
+          <div class="text-sm font-bold text-slate-300 mt-2">Expert Technicians</div>
+          <p class="text-xs text-slate-500 mt-1">Certified master body mechanics</p>
+        </div>
+
+        <!-- Stat 4 -->
+        <div class="text-center px-4 py-2 pt-6 md:pt-2">
+          <div class="text-4xl sm:text-5xl font-black text-[#e1e8f0] tracking-tight">98%</div>
+          <div class="text-sm font-bold text-slate-300 mt-2">Client Satisfaction</div>
+          <p class="text-xs text-slate-500 mt-1">Consistently positive reviews</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       SECTION 6: HOW WE REPAIR YOUR CAR (PROCESS)
+       Background: Dark #0c0e14
+       Matches Screenshot: Split Layout, Workshop Photo Left, 4 Step Cards Right
+       ========================================================================= -->
+  <section id="process" class="py-24 bg-brand-dark">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Header Row -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-14">
+        <div>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#e1e8f0] tracking-tight">
+            How We <span class="text-brand-gold">Repair</span> Your Car
+          </h2>
+        </div>
+        <div>
+          <p class="text-slate-400 text-sm sm:text-base max-w-md">
+            Step-by-step process explained in a quick, easy-to-follow guide for maximum clarity.
+          </p>
+        </div>
+      </div>
+
+      <!-- Split Layout -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        
+        <!-- Left: Action Workshop Photo with Video/Action Card -->
+        <div class="lg:col-span-6">
+          <div class="relative rounded-3xl overflow-hidden border border-brand-border bg-slate-900 shadow-2xl group">
+            <img 
+              src="assets/images/process_team.jpg" 
+              alt="Narco Body Repair Process Team" 
+              class="w-full aspect-[4/3.2] object-cover group-hover:scale-105 transition-transform duration-700"
+            />
+            <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+              <button class="open-booking-btn w-16 h-16 rounded-full bg-brand-blue/90 text-white flex items-center justify-center shadow-xl hover:scale-110 transition-transform">
+                <i data-lucide="play" class="w-8 h-8 fill-white ml-1"></i>
+              </button>
+            </div>
+            <div class="absolute bottom-4 left-4 right-4 text-center">
+              <span class="inline-block bg-black/70 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-semibold text-slate-300">
+                Pemeriksaan Teliti di Setiap Tahapan Pengerjaan
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: 4 Sequential Step Cards (Matches Screenshot 01, 02, 03, 04) -->
+        <div class="lg:col-span-6 space-y-4">
+          
+          <!-- Step 01 -->
+          <div class="p-5 rounded-2xl bg-brand-card border border-brand-border flex items-start gap-5 hover:border-amber-400/40 transition-colors">
+            <div class="w-14 h-14 rounded-xl bg-black/60 border border-amber-400/40 text-brand-gold flex items-center justify-center font-black text-xl shrink-0">
+              01
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-[#e1e8f0]">Book Your Appointment</h3>
+              <p class="text-sm text-slate-400 mt-1">Schedule your car inspection online or consult via WhatsApp instantly.</p>
+            </div>
+          </div>
+
+          <!-- Step 02 -->
+          <div class="p-5 rounded-2xl bg-brand-card border border-brand-border flex items-start gap-5 hover:border-amber-400/40 transition-colors">
+            <div class="w-14 h-14 rounded-xl bg-black/60 border border-amber-400/40 text-brand-gold flex items-center justify-center font-black text-xl shrink-0">
+              02
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-[#e1e8f0]">Drop Your Car</h3>
+              <p class="text-sm text-slate-400 mt-1">Bring your vehicle to our garage or request our convenient towing & pickup service.</p>
+            </div>
+          </div>
+
+          <!-- Step 03 -->
+          <div class="p-5 rounded-2xl bg-brand-card border border-brand-border flex items-start gap-5 hover:border-amber-400/40 transition-colors">
+            <div class="w-14 h-14 rounded-xl bg-black/60 border border-amber-400/40 text-brand-gold flex items-center justify-center font-black text-xl shrink-0">
+              03
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-[#e1e8f0]">Perform Repair</h3>
+              <p class="text-sm text-slate-400 mt-1">Certified mechanics complete repairs in dedicated cat oven booths & chassis bays.</p>
+            </div>
+          </div>
+
+          <!-- Step 04 -->
+          <div class="p-5 rounded-2xl bg-brand-card border border-brand-border flex items-start gap-5 hover:border-amber-400/40 transition-colors">
+            <div class="w-14 h-14 rounded-xl bg-black/60 border border-amber-400/40 text-brand-gold flex items-center justify-center font-black text-xl shrink-0">
+              04
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-[#e1e8f0]">Pick Up & Drive</h3>
+              <p class="text-sm text-slate-400 mt-1">Inspect your flawless vehicle, receive the warranty certificate, and drive away happy!</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+  <!-- =========================================================================
+       SECTION 8: SEE OUR EXPERTISE IN ACTION (GALLERY / BENTO GRID)
+       Background: Dark #0c0e14
+       Matches Screenshot: Pill Badge, Bento Layout with Tall Left Image, Top Mid, Top Right, Wide Bottom
+       ========================================================================= -->
+  <section id="gallery" class="py-24 bg-brand-dark">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Top Pill Badge -->
+      <div class="text-center mb-4">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#181b25] border border-slate-700/60 text-xs font-bold text-slate-300">
+          <i data-lucide="camera" class="w-3.5 h-3.5 text-brand-blue"></i>
+          <span>Our Work</span>
+        </div>
+      </div>
+
+      <!-- Heading -->
+      <div class="text-center max-w-3xl mx-auto mb-10 space-y-3">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#e1e8f0] tracking-tight">
+          See Our <span class="text-brand-gold">Expertise</span> in Action
+        </h2>
+        <p class="text-slate-400 text-base">
+          Select before and after shots, workshop photos, and repair projects that showcase our professional skill.
+        </p>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="flex items-center justify-center gap-2 flex-wrap mb-10">
+        <button data-filter="all" class="gallery-filter-btn px-4 py-1.5 rounded-full text-xs font-bold bg-brand-blue text-white transition">Semua Karya</button>
+        <button data-filter="cat-oven" class="gallery-filter-btn px-4 py-1.5 rounded-full text-xs font-bold bg-[#161922] text-slate-400 hover:text-white transition">Cat Oven</button>
+        <button data-filter="body-repair" class="gallery-filter-btn px-4 py-1.5 rounded-full text-xs font-bold bg-[#161922] text-slate-400 hover:text-white transition">Body Repair</button>
+        <button data-filter="detailing" class="gallery-filter-btn px-4 py-1.5 rounded-full text-xs font-bold bg-[#161922] text-slate-400 hover:text-white transition">Detailing</button>
+      </div>
+
+      <!-- Bento Grid (Strictly Matching Screenshot Architecture) -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-5">
+        
+        <!-- Left Tall Image (Spans 5 Columns, Rows 1-2) -->
+        <div 
+          data-category="cat-oven" 
+          data-title="Cat Oven Spray Precision di Ruang Tertutup Bebas Debu"
+          class="gallery-item md:col-span-5 relative rounded-2xl overflow-hidden bg-slate-900 border border-brand-border cursor-pointer group aspect-[4/5] md:aspect-auto md:row-span-2"
+        >
+          <img 
+            src="assets/images/gallery_spray.jpg" 
+            alt="Pengecatan Cat Oven Narco Body Repair" 
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+            <div>
+              <span class="text-xs text-brand-gold font-bold uppercase tracking-wider">Cat Oven Spray</span>
+              <h4 class="text-base font-bold text-white">Showroom High Gloss Finish</h4>
+            </div>
+          </div>
+        </div>
+
+        <!-- Top Middle Image (Spans 4 Columns) -->
+        <div 
+          data-category="body-repair" 
+          data-title="Penyelarasan Roda & Kalibrasi Sasis Pasca Benturan"
+          class="gallery-item md:col-span-4 relative rounded-2xl overflow-hidden bg-slate-900 border border-brand-border cursor-pointer group aspect-[16/10]"
+        >
+          <img 
+            src="assets/images/gallery_wheel.jpg" 
+            alt="Penyelarasan Roda Narco Repair" 
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+            <span class="text-xs font-bold text-white">Chassis & Alignment Inspection</span>
+          </div>
+        </div>
+
+        <!-- Top Right Image (Spans 3 Columns) -->
+        <div 
+          data-category="body-repair" 
+          data-title="Inspeksi Presisi Ketebalan Panel & Caliper"
+          class="gallery-item md:col-span-3 relative rounded-2xl overflow-hidden bg-slate-900 border border-brand-border cursor-pointer group aspect-[16/10]"
+        >
+          <img 
+            src="assets/images/gallery_brake.jpg" 
+            alt="Inspeksi Rem & Panel Narco Repair" 
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+            <span class="text-xs font-bold text-white">Quality Inspection Check</span>
+          </div>
+        </div>
+
+        <!-- Bottom Wide Image (Spans 7 Columns, Spanning Middle + Right) -->
+        <div 
+          data-category="detailing" 
+          data-title="Duo Teknisi Senior Memastikan Presisi Pemasangan Bodi"
+          class="gallery-item md:col-span-7 relative rounded-2xl overflow-hidden bg-slate-900 border border-brand-border cursor-pointer group aspect-[16/9]"
+        >
+          <img 
+            src="assets/images/gallery_mechanics_duo.jpg" 
+            alt="Duo Teknisi Narco Body Repair" 
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+            <div>
+              <span class="text-xs text-brand-gold font-bold uppercase tracking-wider">Final QC Stage</span>
+              <h4 class="text-base font-bold text-white">Pemeriksaan Celah & Kelurusan Garis Bodi (Gap Alignment)</h4>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       SECTION 9: WHAT OUR CLIENTS SAY (TESTIMONIALS)
+       Background: Dark #0c0e14
+       Matches Screenshot: 4 Cards, 5 Gold Stars, User Avatar, Location, Slider Controls
+       ========================================================================= -->
+  <section id="reviews" class="py-24 bg-[#0a0c12] border-t border-brand-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Top Pill Badge -->
+      <div class="text-center mb-4">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#181b25] border border-slate-700/60 text-xs font-bold text-slate-300">
+          <i data-lucide="message-square" class="w-3.5 h-3.5 text-brand-blue"></i>
+          <span>Customer Reviews</span>
+        </div>
+      </div>
+
+      <!-- Heading -->
+      <div class="text-center max-w-3xl mx-auto mb-14 space-y-3">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#e1e8f0] tracking-tight">
+          What Our <span class="text-brand-gold">Clients Say</span>
+        </h2>
+        <p class="text-slate-400 text-base">
+          Real feedback from drivers who trust us for reliable, fast auto repairs.
+        </p>
+      </div>
+
+      <!-- Testimonials Horizontal Carousel Track -->
+      <div id="testimonialTrack" class="flex gap-6 overflow-x-auto pb-4 scrollbar-none snap-x snap-mandatory scroll-smooth">
+        
+        <!-- Testimonial 1 (John M.) -->
+        <div class="testimonial-card min-w-[280px] sm:min-w-[320px] md:min-w-[280px] lg:flex-1 bg-brand-card border border-brand-border rounded-2xl p-6 flex flex-col justify-between snap-start">
+          <div>
+            <!-- 5 Stars -->
+            <div class="flex items-center gap-1 text-amber-400 mb-4 text-sm">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <p class="text-sm text-slate-300 italic leading-relaxed mb-6">
+              "Fast, professional, and reliable service. My car was repaired quickly, efficiently, and perfectly every time. Warna cat sama persis tidak ada belang."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-white/5">
+            <img src="assets/images/avatar_1.jpg" alt="John M." class="w-11 h-11 rounded-full object-cover border border-amber-400/40">
+            <div>
+              <h4 class="text-sm font-bold text-[#e1e8f0]">John M.</h4>
+              <p class="text-xs text-slate-400">Jakarta &bull; Honda Civic RS</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 (Sarah T.) -->
+        <div class="testimonial-card min-w-[280px] sm:min-w-[320px] md:min-w-[280px] lg:flex-1 bg-brand-card border border-brand-border rounded-2xl p-6 flex flex-col justify-between snap-start">
+          <div>
+            <!-- 5 Stars -->
+            <div class="flex items-center gap-1 text-amber-400 mb-4 text-sm">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <p class="text-sm text-slate-300 italic leading-relaxed mb-6">
+              "Bumper depan yang tadinya sobek dan penyok karena tabrakan berhasil diperbaiki rapi sekali. Pelayanan ramah dan klaim asuransi dibantu tuntas."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-white/5">
+            <img src="assets/images/avatar_2.jpg" alt="Sarah T." class="w-11 h-11 rounded-full object-cover border border-amber-400/40">
+            <div>
+              <h4 class="text-sm font-bold text-[#e1e8f0]">Sarah T.</h4>
+              <p class="text-xs text-slate-400">Tangerang &bull; Toyota Fortuner</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 (David R.) -->
+        <div class="testimonial-card min-w-[280px] sm:min-w-[320px] md:min-w-[280px] lg:flex-1 bg-brand-card border border-brand-border rounded-2xl p-6 flex flex-col justify-between snap-start">
+          <div>
+            <!-- 5 Stars -->
+            <div class="flex items-center gap-1 text-amber-400 mb-4 text-sm">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <p class="text-sm text-slate-300 italic leading-relaxed mb-6">
+              "Ketok magic PDR Narco terbaik! Pintu samping kena benturan troli supermarket bisa mulus kembali tanpa perlu cat ulang. Sangat memuaskan."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-white/5">
+            <img src="assets/images/avatar_3.jpg" alt="David R." class="w-11 h-11 rounded-full object-cover border border-amber-400/40">
+            <div>
+              <h4 class="text-sm font-bold text-[#e1e8f0]">David R.</h4>
+              <p class="text-xs text-slate-400">Bekasi &bull; BMW 320i</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 4 (Emily N.) -->
+        <div class="testimonial-card min-w-[280px] sm:min-w-[320px] md:min-w-[280px] lg:flex-1 bg-brand-card border border-brand-border rounded-2xl p-6 flex flex-col justify-between snap-start">
+          <div>
+            <!-- 5 Stars -->
+            <div class="flex items-center gap-1 text-amber-400 mb-4 text-sm">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <p class="text-sm text-slate-300 italic leading-relaxed mb-6">
+              "Pengerjaan tepat waktu sesuai jadwal estimasi awal. Tempat tunggu bengkelnya bersih dan progress difoto berkala dikirim ke WhatsApp saya."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-white/5">
+            <img src="assets/images/avatar_4.jpg" alt="Emily N." class="w-11 h-11 rounded-full object-cover border border-amber-400/40">
+            <div>
+              <h4 class="text-sm font-bold text-[#e1e8f0]">Emily N.</h4>
+              <p class="text-xs text-slate-400">Jakarta Barat &bull; Hyundai Ioniq 5</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Slider Controls (Matches Screenshot Navigation Buttons) -->
+      <div class="flex items-center justify-center gap-3 mt-10">
+        <button id="prevTestimonial" aria-label="Ulasan Sebelumnya" class="w-11 h-11 rounded-xl bg-brand-card border border-slate-700/80 hover:border-amber-400 text-slate-300 hover:text-white flex items-center justify-center transition-colors">
+          <i data-lucide="arrow-left" class="w-5 h-5"></i>
+        </button>
+        <button id="nextTestimonial" aria-label="Ulasan Berikutnya" class="w-11 h-11 rounded-xl bg-brand-card border border-slate-700/80 hover:border-amber-400 text-slate-300 hover:text-white flex items-center justify-center transition-colors">
+          <i data-lucide="arrow-right" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       SECTION 10: VISIT OR CONTACT US (CONTACT & INTERACTIVE MAP)
+       Background: Dark #0c0e14
+       Matches Screenshot: Pill Badge, 4 Contact Cards on Left + Directions Button, Interactive Map on Right
+       ========================================================================= -->
+  <section id="contact" class="py-24 bg-brand-dark">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Top Pill Badge -->
+      <div class="text-center mb-4">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#181b25] border border-slate-700/60 text-xs font-bold text-slate-300">
+          <i data-lucide="map-pin" class="w-3.5 h-3.5 text-brand-blue"></i>
+          <span>Contact Us</span>
+        </div>
+      </div>
+
+      <!-- Heading -->
+      <div class="text-center max-w-3xl mx-auto mb-14 space-y-3">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#e1e8f0] tracking-tight">
+          Visit or <span class="text-brand-gold">Contact Us</span>
+        </h2>
+        <p class="text-slate-400 text-base">
+          Find our garage easily and reach us for appointments or inquiries anytime.
+        </p>
+      </div>
+
+      <!-- Split Layout: Contact Cards & Map -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        
+        <!-- Left: 4 Contact Info Cards + Directions Button (Matches Screenshot) -->
+        <div class="lg:col-span-5 flex flex-col justify-between space-y-4">
+          
+          <!-- Card 1: Address -->
+          <div class="p-5 rounded-2xl bg-brand-card border border-brand-border flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-amber-400/10 border border-amber-400/30 text-brand-gold flex items-center justify-center shrink-0">
+              <i data-lucide="map-pin" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <div class="text-xs font-bold uppercase tracking-wider text-slate-400">Address:</div>
+              <div class="text-sm font-semibold text-[#e1e8f0] mt-0.5 leading-snug">
+                Jl. Panggung Mas Raya No.102, Panggung Lor, Kec. Semarang Utara, Kota Semarang, Jawa Tengah 50177
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Phone -->
+          <div class="p-5 rounded-2xl bg-brand-card border border-brand-border flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-amber-400/10 border border-amber-400/30 text-brand-gold flex items-center justify-center shrink-0">
+              <i data-lucide="phone" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <div class="text-xs font-bold uppercase tracking-wider text-slate-400">WhatsApp / Phone:</div>
+              <a href="https://wa.me/6285803100168" target="_blank" class="text-sm font-semibold text-brand-blue hover:underline mt-0.5 block">
+                0858-0310-0168 (Chat WhatsApp & Telepon)
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 3: Email -->
+          <div class="p-5 rounded-2xl bg-brand-card border border-brand-border flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-amber-400/10 border border-amber-400/30 text-brand-gold flex items-center justify-center shrink-0">
+              <i data-lucide="mail" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <div class="text-xs font-bold uppercase tracking-wider text-slate-400">Email:</div>
+              <div class="text-sm font-semibold text-[#e1e8f0] mt-0.5">
+                service@narcobodyrepair.com
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: Working Hours -->
+          <div class="p-5 rounded-2xl bg-brand-card border border-brand-border flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-amber-400/10 border border-amber-400/30 text-brand-gold flex items-center justify-center shrink-0">
+              <i data-lucide="clock" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <div class="text-xs font-bold uppercase tracking-wider text-slate-400">Working Hours:</div>
+              <div class="text-sm font-semibold text-[#e1e8f0] mt-0.5">
+                Senin - Sabtu: 09:00 - 16:00 WIB (Minggu Tutup)
+              </div>
+              <div class="text-xs text-slate-400 mt-0.5">Open 9:00 AM to 4:00 PM (Sunday Closed)</div>
+            </div>
+          </div>
+
+          <!-- Blue Directions Button -->
+          <div class="pt-2">
+            <a 
+              href="https://www.google.com/maps/dir/?api=1&destination=narco+body+repair+Semarang" 
+              target="_blank" 
+              rel="noopener"
+              class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-brand-blue hover:bg-brand-blue-hover text-white font-bold text-sm px-8 py-3.5 rounded-md shadow transition"
+            >
+              <i data-lucide="navigation" class="w-4 h-4"></i>
+              <span>GET DIRECTIONS</span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Right: Official Google Maps Embed -->
+        <div class="lg:col-span-7">
+          <div class="h-full min-h-[380px] lg:min-h-[460px] rounded-3xl overflow-hidden border border-brand-border shadow-2xl relative">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4857.696030227748!2d110.40774689999999!3d-6.960321599999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708bc890136d2f%3A0xc61ac753b3c9dbf5!2snarco%20body%20repair!5e1!3m2!1sen!2sid!4v1792989716569!5m2!1sen!2sid" 
+              class="w-full h-full min-h-[380px] lg:min-h-[460px]" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="strict-origin-when-cross-origin"
+            ></iframe>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       SECTION 11: WE WORK WITH LEADING AUTOMOTIVE BRANDS
+       Background: Dark #0c0e14
+       Matches Screenshot: Headline with Gold Words, Logo Partner Row
+       ========================================================================= -->
+  <section class="py-20 bg-[#07080c] border-t border-b border-brand-border overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 text-center">
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-[#e1e8f0] tracking-tight">
+        We Work With <span class="text-brand-gold">Leading Automotive</span> Brands
+      </h2>
+    </div>
+
+    <!-- Infinite Auto Scrolling Brand Logos -->
+    <div class="relative w-full overflow-hidden">
+      <div class="animate-marquee flex items-center gap-12 sm:gap-16 opacity-70 hover:opacity-100 transition-opacity">
+        
+        <div class="flex items-center gap-2 text-xl font-bold tracking-wider text-slate-300">
+          <i data-lucide="shield" class="w-6 h-6 text-brand-gold"></i>
+          <span>TOYOTA</span>
+        </div>
+        <div class="flex items-center gap-2 text-xl font-bold tracking-wider text-slate-300">
+          <i data-lucide="hexagon" class="w-6 h-6 text-brand-blue"></i>
+          <span>HONDA</span>
+        </div>
+        <div class="flex items-center gap-2 text-xl font-bold tracking-wider text-slate-300">
+          <i data-lucide="circle-dot" class="w-6 h-6 text-brand-gold"></i>
+          <span>MITSUBISHI</span>
+        </div>
+        <div class="flex items-center gap-2 text-xl font-bold tracking-wider text-slate-300">
+          <i data-lucide="disc" class="w-6 h-6 text-brand-blue"></i>
+          <span>BMW</span>
+        </div>
+        <div class="flex items-center gap-2 text-xl font-bold tracking-wider text-slate-300">
+          <i data-lucide="star" class="w-6 h-6 text-brand-gold"></i>
+          <span>MERCEDES-BENZ</span>
+        </div>
+        <div class="flex items-center gap-2 text-xl font-bold tracking-wider text-slate-300">
+          <i data-lucide="compass" class="w-6 h-6 text-brand-blue"></i>
+          <span>HYUNDAI</span>
+        </div>
+        <div class="flex items-center gap-2 text-xl font-bold tracking-wider text-slate-300">
+          <i data-lucide="target" class="w-6 h-6 text-brand-gold"></i>
+          <span>MAZDA</span>
+        </div>
+        <div class="flex items-center gap-2 text-xl font-bold tracking-wider text-slate-300">
+          <i data-lucide="crosshair" class="w-6 h-6 text-brand-blue"></i>
+          <span>NISSAN</span>
+        </div>
+        <div class="flex items-center gap-2 text-xl font-bold tracking-wider text-slate-300">
+          <i data-lucide="diamond" class="w-6 h-6 text-brand-gold"></i>
+          <span>LEXUS</span>
+        </div>
+
+        <!-- Duplicated for seamless infinite marquee loop -->
+        <div class="flex items-center gap-2 text-xl font-bold tracking-wider text-slate-300">
+          <i data-lucide="shield" class="w-6 h-6 text-brand-gold"></i>
+          <span>TOYOTA</span>
+        </div>
+        <div class="flex items-center gap-2 text-xl font-bold tracking-wider text-slate-300">
+          <i data-lucide="hexagon" class="w-6 h-6 text-brand-blue"></i>
+          <span>HONDA</span>
+        </div>
+        <div class="flex items-center gap-2 text-xl font-bold tracking-wider text-slate-300">
+          <i data-lucide="circle-dot" class="w-6 h-6 text-brand-gold"></i>
+          <span>MITSUBISHI</span>
+        </div>
+        <div class="flex items-center gap-2 text-xl font-bold tracking-wider text-slate-300">
+          <i data-lucide="disc" class="w-6 h-6 text-brand-blue"></i>
+          <span>BMW</span>
+        </div>
+        <div class="flex items-center gap-2 text-xl font-bold tracking-wider text-slate-300">
+          <i data-lucide="star" class="w-6 h-6 text-brand-gold"></i>
+          <span>MERCEDES-BENZ</span>
+        </div>
+        <div class="flex items-center gap-2 text-xl font-bold tracking-wider text-slate-300">
+          <i data-lucide="compass" class="w-6 h-6 text-brand-blue"></i>
+          <span>HYUNDAI</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       SECTION 12: CALL TO ACTION BANNER (BOOK YOUR APPOINTMENT TODAY)
+       Background: #e1e8f0 (Strictly replacing white per user requirement)
+       Matches Screenshot: Wireframe Sphere motifs on edges, Pill Badge, Buttons
+       ========================================================================= -->
+  <section class="relative bg-[#e1e8f0] text-slate-900 py-20 overflow-hidden wireframe-pattern-cta">
+    
+    <!-- Left Decorative Wireframe Mesh -->
+    <div class="absolute -left-20 top-1/2 -translate-y-1/2 w-80 h-80 pointer-events-none opacity-20">
+      <svg viewBox="0 0 200 200" class="w-full h-full stroke-slate-700 fill-none" stroke-width="1">
+        <circle cx="100" cy="100" r="90" stroke-dasharray="4 4" />
+        <ellipse cx="100" cy="100" rx="90" ry="40" />
+        <ellipse cx="100" cy="100" rx="40" ry="90" />
+        <circle cx="100" cy="100" r="45" />
+      </svg>
+    </div>
+
+    <!-- Right Decorative Wireframe Mesh -->
+    <div class="absolute -right-20 top-1/2 -translate-y-1/2 w-80 h-80 pointer-events-none opacity-20">
+      <svg viewBox="0 0 200 200" class="w-full h-full stroke-slate-700 fill-none" stroke-width="1">
+        <circle cx="100" cy="100" r="90" stroke-dasharray="4 4" />
+        <ellipse cx="100" cy="100" rx="90" ry="40" transform="rotate(45 100 100)" />
+        <ellipse cx="100" cy="100" rx="40" ry="90" transform="rotate(45 100 100)" />
+        <circle cx="100" cy="100" r="50" />
+      </svg>
+    </div>
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10 space-y-6">
+      
+      <!-- Pill Badge (Matches Screenshot) -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900 text-xs font-bold text-[#e1e8f0] shadow-sm">
+        <i data-lucide="car" class="w-3.5 h-3.5 text-brand-blue"></i>
+        <span>Ready to Repair?</span>
+      </div>
+
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
+        Book Your Appointment Today
+      </h2>
+
+      <p class="text-base sm:text-lg text-slate-700 max-w-2xl mx-auto font-normal">
+        Get fast, reliable, and expert auto repair service from certified technicians.
+      </p>
+
+      <!-- Action Buttons (Matches Screenshot: Blue Button + Outline Call Button) -->
+      <div class="flex flex-wrap items-center justify-center gap-4 pt-2">
+        <button class="open-booking-btn bg-brand-blue hover:bg-brand-blue-hover text-white font-bold text-sm px-8 py-3.5 rounded-md shadow-md transition-all">
+          BOOK APPOINTMENT
+        </button>
+        <a href="tel:085803100168" class="bg-transparent border border-slate-500 hover:border-slate-800 text-slate-800 hover:bg-slate-300/60 font-bold text-sm px-8 py-3.5 rounded-md transition-all">
+          CALL NOW
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       SECTION 13: FOOTER
+       Background: Dark #0c0e14
+       Matches Screenshot: 4 Columns, Logo + Subscribe, Quick Links, Services, Help Us, Copyright & Socials
+       ========================================================================= -->
+  <footer class="bg-brand-dark border-t border-brand-border text-slate-400 pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- 4 Columns Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12">
+        
+        <!-- Column 1: Brand & Newsletter (Spans 4) -->
+        <div class="lg:col-span-4 space-y-5">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-lg bg-brand-blue flex items-center justify-center text-white">
+              <i data-lucide="shield-check" class="w-5 h-5"></i>
+            </div>
+            <span class="text-xl font-black tracking-tight text-[#e1e8f0]">
+              NARCO <span class="text-brand-blue">BODY REPAIR</span>
+            </span>
+          </div>
+
+          <p class="text-xs text-slate-400 leading-relaxed max-w-sm">
+            Trusted auto body repair service offering quality work and reliable results for every vehicle. Berstandar pabrikan dengan garansi kepuasan.
+          </p>
+
+          <!-- Newsletter Form (Matches Screenshot: Input + Blue Subscribe Button) -->
+          <div class="pt-2">
+            <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-2">Subscribe our newsletter</h4>
+            <form id="newsletterForm" class="flex items-center gap-2 max-w-sm">
+              <input 
+                type="email" 
+                placeholder="Enter your email" 
+                required 
+                class="bg-[#181b24] border border-slate-700/80 rounded-lg px-3.5 py-2 text-xs text-[#e1e8f0] focus:outline-none focus:border-brand-blue flex-1"
+              >
+              <button type="submit" class="bg-brand-blue hover:bg-brand-blue-hover text-white text-xs font-bold px-4 py-2 rounded-lg transition">
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Column 2: Quick Links (Spans 2) -->
+        <div class="lg:col-span-2 space-y-4">
+          <h4 class="text-sm font-bold text-[#e1e8f0] uppercase tracking-wider">Quick Links</h4>
+          <ul class="space-y-2.5 text-xs">
+            <li><a href="#hero" class="hover:text-brand-blue transition-colors">Home</a></li>
+            <li><a href="#services" class="hover:text-brand-blue transition-colors">Services</a></li>
+            <li><a href="#about" class="hover:text-brand-blue transition-colors">About Us</a></li>
+            <li><a href="#gallery" class="hover:text-brand-blue transition-colors">Gallery</a></li>
+            <li><a href="#reviews" class="hover:text-brand-blue transition-colors">Blog & Reviews</a></li>
+            <li><a href="#contact" class="hover:text-brand-blue transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Services (Spans 3) -->
+        <div class="lg:col-span-3 space-y-4">
+          <h4 class="text-sm font-bold text-[#e1e8f0] uppercase tracking-wider">Services</h4>
+          <ul class="space-y-2.5 text-xs">
+            <li><a href="#services" class="hover:text-brand-blue transition-colors">Body Dent & Collision Repair</a></li>
+            <li><a href="#services" class="hover:text-brand-blue transition-colors">Precision Cat Oven & Paint Refresh</a></li>
+            <li><a href="#services" class="hover:text-brand-blue transition-colors">Chassis Frame Alignment Jig</a></li>
+            <li><a href="#services" class="hover:text-brand-blue transition-colors">Smart Vehicle Diagnostics</a></li>
+            <li><a href="#services" class="hover:text-brand-blue transition-colors">Paintless Dent Removal (PDR)</a></li>
+            <li><a href="#services" class="hover:text-brand-blue transition-colors">Nano Ceramic Coating & Detailing</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Help Us / Support (Spans 3) -->
+        <div class="lg:col-span-3 space-y-4">
+          <h4 class="text-sm font-bold text-[#e1e8f0] uppercase tracking-wider">Help Us</h4>
+          <ul class="space-y-2.5 text-xs">
+            <li><a href="#" class="hover:text-brand-blue transition-colors">Privacy Policy</a></li>
+            <li><a href="#" class="hover:text-brand-blue transition-colors">Terms and Conditions</a></li>
+            <li><a href="#" class="hover:text-brand-blue transition-colors">Service Policies</a></li>
+            <li><a href="#" class="hover:text-brand-blue transition-colors">Warranty Information (6-12 Bulan)</a></li>
+            <li><a href="#" class="hover:text-brand-blue transition-colors">Mitra Asuransi Mobil</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Giant Faint Watermark: BENCHCODE™ -->
+      <div class="w-full overflow-hidden my-6 sm:my-8 text-center select-none pointer-events-none">
+        <div class="text-4xl sm:text-7xl md:text-8xl font-black text-white/[0.04] tracking-[0.2em] whitespace-nowrap">
+          BENCHCODE™
+        </div>
+      </div>
+
+      <!-- Bottom Bar: Copyright, BENCHCODE™ Trademark & Socials -->
+      <div class="pt-8 border-t border-brand-border flex flex-col lg:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+        <div class="flex flex-col sm:flex-row items-center gap-3 text-center sm:text-left">
+          <span>&copy; 2026 <strong class="text-[#e1e8f0]">Narco Body Repair</strong>. All rights reserved.</span>
+          <span class="hidden sm:inline text-slate-600">•</span>
+          <div class="flex items-center gap-2">
+            <span>Designed & Developed by</span>
+            <a href="https://github.com/benchcodedev" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-bold text-[#e1e8f0] hover:text-brand-blue hover:border-brand-blue transition-all shadow-sm group">
+              <svg class="w-3.5 h-3.5 text-brand-blue group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+              <span>BENCHCODE™</span>
+            </a>
+          </div>
+        </div>
+        <div class="flex items-center space-x-4 text-slate-400">
+          <a href="#" aria-label="Facebook" class="hover:text-brand-blue transition-colors"><i data-lucide="facebook" class="w-4 h-4"></i></a>
+          <a href="#" aria-label="Instagram" class="hover:text-brand-blue transition-colors"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+          <a href="#" aria-label="LinkedIn" class="hover:text-brand-blue transition-colors"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
+          <a href="#" aria-label="YouTube" class="hover:text-brand-blue transition-colors"><i data-lucide="youtube" class="w-4 h-4"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- =========================================================================
+       MODAL: APPOINTMENT BOOKING (WhatsApp Direct Generator)
+       ========================================================================= -->
+  <div id="bookingModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+    <div id="bookingModalBackdrop" class="fixed inset-0 bg-black/75 backdrop-blur-sm transition-opacity"></div>
+    <div class="relative bg-brand-card border border-brand-border rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl z-10 modal-enter-active">
+      <div class="flex items-center justify-between pb-4 border-b border-white/10">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-brand-blue text-white flex items-center justify-center">
+            <i data-lucide="calendar" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-[#e1e8f0]">Booking Jadwal Repair</h3>
+            <p class="text-xs text-slate-400">Narco Body Repair Workshop</p>
+          </div>
+        </div>
+        <button id="closeBookingBtn" class="text-slate-400 hover:text-white p-1 rounded-lg">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+      </div>
+
+      <form id="bookingForm" class="mt-5 space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1">Nama Lengkap</label>
+          <input type="text" id="bookName" required placeholder="Contoh: Budi Santoso" class="w-full bg-[#1e2230] border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-[#e1e8f0] focus:outline-none focus:border-brand-blue">
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Nomor WhatsApp</label>
+            <input type="tel" id="bookPhone" required placeholder="0858xxxxxxxx" class="w-full bg-[#1e2230] border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-[#e1e8f0] focus:outline-none focus:border-brand-blue">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Tipe & Merk Kendaraan</label>
+            <input type="text" id="bookVehicle" required placeholder="Honda HR-V 2022" class="w-full bg-[#1e2230] border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-[#e1e8f0] focus:outline-none focus:border-brand-blue">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Layanan Yang Dibutuhkan</label>
+            <select id="modalServiceInput" class="w-full bg-[#1e2230] border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-[#e1e8f0] focus:outline-none focus:border-brand-blue">
+              <option value="Cat Oven & Paint Match">Cat Oven & Paint Match</option>
+              <option value="Body Dent & Collision Repair">Body Dent & Collision Repair</option>
+              <option value="PDR (Paintless Dent Removal)">PDR (Ketok Magic Cepat)</option>
+              <option value="Chassis Frame Realignment">Sasis Realignment</option>
+              <option value="Detailing & Nano Ceramic">Detailing & Coating 9H</option>
+              <option value="Klaim Asuransi Mobil">Klaim Asuransi</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Rencana Tanggal Masuk</label>
+            <input type="date" id="bookDate" required class="w-full bg-[#1e2230] border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-[#e1e8f0] focus:outline-none focus:border-brand-blue">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1">Deskripsi Kerusakan / Catatan</label>
+          <textarea id="bookNotes" rows="2" placeholder="Jelaskan bagian bodi yang tergores/penyok..." class="w-full bg-[#1e2230] border border-slate-700 rounded-xl px-4 py-2 text-sm text-[#e1e8f0] focus:outline-none focus:border-brand-blue"></textarea>
+        </div>
+
+        <div class="pt-2">
+          <button type="submit" class="w-full bg-brand-blue hover:bg-brand-blue-hover text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 shadow-lg">
+            <i data-lucide="send" class="w-4 h-4"></i>
+            <span>KIRIM JADWAL BOOKING VIA WHATSAPP</span>
+          </button>
+          <p class="text-[11px] text-center text-slate-400 mt-2">Respon cepat dalam 5-15 menit pada jam kerja.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+  <!-- =========================================================================
+       MODAL: SERVICE DETAIL (EXPLORE SERVICE)
+       ========================================================================= -->
+  <div id="serviceDetailModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+    <div id="serviceModalBackdrop" class="fixed inset-0 bg-black/75 backdrop-blur-sm transition-opacity"></div>
+    <div class="relative bg-brand-card border border-brand-border rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl z-10 modal-enter-active">
+      <div class="flex items-start justify-between pb-4 border-b border-white/10">
+        <div>
+          <span id="serviceModalBadge" class="text-xs font-bold text-brand-gold uppercase tracking-wider">Badge</span>
+          <h3 id="serviceModalTitle" class="text-xl font-bold text-[#e1e8f0] mt-1">Service Title</h3>
+        </div>
+        <button id="closeServiceModalBtn" class="text-slate-400 hover:text-white p-1 rounded-lg">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+      </div>
+
+      <div class="mt-4 space-y-4">
+        <div class="w-full h-44 rounded-2xl overflow-hidden bg-slate-900">
+          <img id="serviceModalImg" src="" alt="Service preview" class="w-full h-full object-cover">
+        </div>
+        <p id="serviceModalDesc" class="text-sm text-slate-300 leading-relaxed"></p>
+        
+        <div>
+          <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-2">Keunggulan Pengerjaan:</h4>
+          <ul id="serviceModalFeatures" class="space-y-2"></ul>
+        </div>
+
+        <div class="pt-3 border-t border-white/10 flex justify-end gap-3">
+          <button onclick="document.getElementById('serviceDetailModal').classList.add('hidden'); document.body.style.overflow='';" class="px-5 py-2.5 rounded-xl border border-slate-700 text-xs font-bold text-slate-300 hover:text-white">
+            Tutup
+          </button>
+          <button onclick="document.getElementById('serviceDetailModal').classList.add('hidden'); document.getElementById('bookingModal').classList.remove('hidden');" class="bg-brand-blue hover:bg-brand-blue-hover text-white text-xs font-bold px-6 py-2.5 rounded-xl">
+            Booking Layanan Ini
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- =========================================================================
+       MODAL: GALLERY LIGHTBOX
+       ========================================================================= -->
+  <div id="lightboxModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/90 backdrop-blur-md">
+    <div id="lightboxBackdrop" class="fixed inset-0"></div>
+    <div class="relative z-10 max-w-4xl w-full flex flex-col items-center">
+      <button id="closeLightboxBtn" class="self-end text-slate-400 hover:text-white mb-3 p-1">
+        <i data-lucide="x" class="w-7 h-7"></i>
+      </button>
+      <img id="lightboxImg" src="" alt="Zoomed Work" class="max-h-[75vh] w-auto rounded-2xl shadow-2xl object-contain border border-white/10">
+      <p id="lightboxCaption" class="text-sm font-semibold text-slate-300 mt-4 text-center"></p>
+    </div>
+  </div>
+
+
+  <!-- =========================================================================
+       FLOATING WHATSAPP BUTTON (High conversion quick action)
+       ========================================================================= -->
+  <a 
+    href="https://wa.me/6285803100168?text=Halo%20Narco%20Body%20Repair%2C%20saya%20mau%20konsultasi%20perbaikan%20mobil%20saya." 
+    target="_blank" 
+    rel="noopener"
+    aria-label="Konsultasi WhatsApp"
+    class="fixed bottom-6 left-6 z-40 bg-[#25D366] hover:bg-[#20ba59] text-white p-3.5 rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 flex items-center justify-center group"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+    </svg>
+    <span class="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs transition-all duration-300 ease-in-out font-bold text-xs pl-0 group-hover:pl-2">
+      Chat WhatsApp
+    </span>
+  </a>
+
+  <!-- Custom Main JS -->
+  <script src="js/main.js"></script>
+</body>
+</html>
